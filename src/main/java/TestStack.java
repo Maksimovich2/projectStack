@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class TestStack {
     public static void main(String[] args) {
         StackMas stack = new StackMas(5);
@@ -9,7 +11,8 @@ public class TestStack {
         stack.push(personMax);
         stack.push(personAndrew);
         stack.push(personAndrey);
-        System.out.println(personMax);
+
+
         System.out.println("Стек: ");
         while (!stack.isEmpty()) {
             System.out.println(stack.pop());

@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.EmptyStackException;
+import java.util.Objects;
 
 public class StackMas {
 
@@ -11,25 +13,26 @@ public class StackMas {
         stack = new Person[sizeStack];
         top = -1;
     }
-    private void isUniqPerson(Person[] stack, Person addPerson){
+    private boolean isUniqPerson(Person[] stack, Person addPerson){
         if(addPerson == null){
             throw new IllegalArgumentException("person equal null!");
         }
-            for (int i = 0; i < stack.length; i++) {
-                if(addPerson.equals(stack[i])){
-                    throw new IllegalArgumentException("person already add in stack persons!!!");
-                }
+        for (int i = 0; i < stack.length; i++) {
+            if(addPerson.equals(stack[i])){
+                throw new IllegalArgumentException("person already add in stack persons!!!");
             }
         }
+        return true;
+    }
 
     void push(Person person){
         if (person == null) {
             throw new IllegalArgumentException("person equal null!");
         }
-            if (stack.length <= sizeStack){
-                isUniqPerson(stack, person);
-                stack[++top] = person;
-            }
+        if (stack.length <= sizeStack ){
+            isUniqPerson(stack, person);
+            stack[++top] = person;
+        }
     }
     Person peek(){
         if (top == -1)
